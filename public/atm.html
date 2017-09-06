@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ATM</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+      
+      <script type="text/javascript">
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var decodedCookie = decodeURIComponent(document.cookie);
+		    var ca = decodedCookie.split(';');
+		    for(var i = 0; i <ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0) == ' ') {
+		            c = c.substring(1);
+		        }
+		        if (c.indexOf(name) == 0) {
+		            return c.substring(name.length, c.length);
+                    console.log(c.substring(name.length,c.length));
+		        }
+		    }
+		    return "";
+		}
+	</script>
+      
+          </head>
+   <body>
+       <p>This is what you can see, after you are logged in</p>
+       <p>Withdraw your money</p>
+<h1 id="id"></h1>
+<h2 id="money"></h2>
+   
+       
+<form class="form-signin" action="/withdraw" method="POST">
+            <h2 class="form-signin-heading text-center">WITHDRAW</h2>
+            <input name="amount" class="form-control" placeholder="Amount" required autofocus>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" >Withdraw</button>
+ </form>
+
+ <form class="form-signin" action="/deposit" method="POST">
+            <h2 class="form-signin-heading text-center">DEPOSIT</h2>
+            <input name="amount2" class="form-control" placeholder="Amount" required autofocus>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Deposit</button>
+ </form>
+
+ <form class="form-signin" action="/process/logout" method="POST">
+            <h2 class="form-signin-heading text-center">LOGOUT</h2>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
+ </form>
+
+<script type="text/javascript">
+	
+	var money = getCookie('money');
+	var id = getCookie('logged');
+	document.getElementById("id").innerHTML= 'Welcome '+id;
+	document.getElementById("money").innerHTML= 'Your Balance: '+money;
+
+ 
+
+</script>
+    </body>
+
+
+</html>
